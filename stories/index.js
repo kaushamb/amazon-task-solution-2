@@ -42,24 +42,11 @@ const fetchSuggestions = (value) => {
 };
 
 storiesOf('Chips', module)
-  .add('Basic', () => (
-    <Chips
-      placeholder="Type a Programming Language"
-      suggestions={suggestions}
-      fromSuggestionsOnly={false}
-      highlightFirstSuggestion={true}
-    />
-  ))
-  .add('Custom Chip Theme', () => (
-    <Chips
-        chipTheme={{ chip: { margin: "3px", padding: 5, background: 'red' } }}
-        suggestions={suggestions}
-        shouldRenderSuggestions={value => value.length >= 0}
-        fromSuggestionsOnly={false} />
-  ))
+  
+  
   .add('Custom Chip', () => (
     <Chips
-      placeholder="Type a Programming Language"
+      placeholder=" Type a Programming Language"
       	suggestions={data}
         renderChip={(item) => (
           <CustomChip image={item.image}>{item.name}</CustomChip>
@@ -67,9 +54,9 @@ storiesOf('Chips', module)
         fromSuggestionsOnly={true}
         renderSuggestion={(item, { query }) => (
           <div
-            style={style}
+            style={styles}
             key={item.name}>
-            <img src={item.image} width={24} height={24} style={{margin: 5}}/>{item.name}
+            <img src={item.image} width={24} height={24} styles={{margin: 5}}/>{item.name}
           </div>
         )}
         suggestionsFilter={(opt, val) => (
@@ -78,15 +65,10 @@ storiesOf('Chips', module)
         getSuggestionValue={suggestion => suggestion.name}
     />
   ))
-  .add('Async', () => (
-    <Chips
-      placeholder="Type a Programming Language"
-      fetchSuggestions={fetchSuggestions}
-    />
-  ));
+  
 
 
-const style = {
+const styles = {
   display: "flex",
   alignItems: "center",
   padding: '2px 6px',
